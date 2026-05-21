@@ -1,0 +1,295 @@
+/* components/ServicesDetail.css */
+
+.services-detail-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  position: relative;
+  min-height: 100vh;
+}
+
+/* Hero */
+.services-hero {
+  text-align: center;
+  padding: 4rem 0;
+  margin-bottom: 4rem;
+}
+
+.services-badge {
+  display: inline-block;
+  padding: 6px 16px;
+  background: rgba(155, 77, 202, 0.15);
+  border: 1px solid var(--glass-border);
+  color: var(--highlight-color);
+  border-radius: 20px;
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+}
+
+.services-hero h1 {
+  font-size: 3.5rem;
+  font-family: var(--font-montserrat), sans-serif;
+  margin-bottom: 1.5rem;
+}
+
+.services-sub {
+  color: var(--text-secondary);
+  font-size: 1.2rem;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* Detailed Services list */
+.detailed-services-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2.5rem;
+  margin-bottom: 6rem;
+}
+
+.service-detail-item {
+  padding: 3rem;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.3s ease;
+}
+
+.serv-badge-wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.serv-icon {
+  font-size: 2.5rem;
+  filter: drop-shadow(0 4px 8px rgba(155, 77, 202, 0.3));
+}
+
+.serv-tag {
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--highlight-color);
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.service-detail-item h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  font-family: var(--font-montserrat), sans-serif;
+}
+
+.service-detail-item p {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  flex-grow: 1;
+}
+
+.serv-bullet-list {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 2rem;
+}
+
+.serv-bullet-list li {
+  font-size: 0.85rem;
+  color: var(--text-primary);
+  margin-bottom: 0.6rem;
+}
+
+.service-item-cta {
+  width: 100%;
+  text-align: center;
+  padding: 10px;
+}
+
+/* Pricing Grid */
+.pricing-section {
+  margin-bottom: 6rem;
+}
+
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2.5rem;
+}
+
+.pricing-card {
+  padding: 3rem 2.5rem;
+  border-radius: 20px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.pricing-card.accent-plan {
+  background: rgba(122, 40, 138, 0.1);
+  border-color: var(--highlight-color);
+  box-shadow: 0 15px 35px rgba(155, 77, 202, 0.15);
+  transform: scale(1.03);
+}
+
+@media (max-width: 992px) {
+  .pricing-card.accent-plan {
+    transform: none;
+  }
+}
+
+.popular-plan-badge {
+  position: absolute;
+  top: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(135deg, var(--highlight-color), var(--accent-color));
+  color: #fff;
+  padding: 6px 18px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.pricing-card h3 {
+  font-size: 1.4rem;
+  margin-bottom: 0.4rem;
+  font-family: var(--font-montserrat), sans-serif;
+}
+
+.plan-desc {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  margin-bottom: 1.5rem;
+}
+
+.plan-price {
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+}
+
+.plan-size {
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-weight: 600;
+  font-size: 0.85rem;
+  margin: 0 auto 2.5rem auto;
+  color: var(--highlight-color);
+}
+
+.plan-benefits {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 3rem;
+  flex-grow: 1;
+  text-align: left;
+}
+
+.plan-benefits li {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  margin-bottom: 0.8rem;
+  padding-left: 1rem;
+  position: relative;
+}
+
+.plan-btn {
+  width: 100%;
+}
+
+/* FAQ Accordion styles */
+.faq-section {
+  padding: 4rem;
+  border-radius: 24px;
+}
+
+.faq-title {
+  font-size: 2.2rem;
+  text-align: center;
+  margin-bottom: 0.5rem;
+  font-family: var(--font-montserrat), sans-serif;
+}
+
+.faq-sub {
+  text-align: center;
+  color: var(--text-secondary);
+  font-size: 1.1rem;
+  margin-bottom: 3.5rem;
+}
+
+.faq-list {
+  max-width: 800px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.faq-item {
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+.faq-item:hover {
+  border-color: var(--highlight-color);
+  background: rgba(122, 40, 138, 0.05);
+}
+
+.faq-question {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 2rem;
+}
+
+.faq-question h3 {
+  font-size: 1.05rem;
+  margin: 0;
+  font-family: inherit;
+  font-weight: 600;
+}
+
+.faq-arrow {
+  font-size: 0.8rem;
+  color: var(--highlight-color);
+  transition: transform 0.3s ease;
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease, padding 0.3s ease;
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.faq-item.open .faq-answer {
+  max-height: 200px;
+  padding: 1.5rem 2rem;
+  border-top: 1px solid rgba(155, 77, 202, 0.1);
+}
+
+@media (max-width: 768px) {
+  .services-hero h1 {
+    font-size: 2.5rem;
+  }
+  .faq-section {
+    padding: 2rem 1.5rem;
+  }
+  .pricing-card {
+    padding: 2rem 1.5rem;
+  }
+}

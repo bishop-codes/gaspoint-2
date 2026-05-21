@@ -1,0 +1,308 @@
+/* components/FeaturesDetail.css */
+
+.features-detail-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  position: relative;
+  min-height: 100vh;
+}
+
+/* Hero */
+.features-hero {
+  text-align: center;
+  padding: 4rem 0;
+  margin-bottom: 4rem;
+}
+
+.features-badge {
+  display: inline-block;
+  padding: 6px 16px;
+  background: rgba(155, 77, 202, 0.15);
+  border: 1px solid var(--glass-border);
+  color: var(--highlight-color);
+  border-radius: 20px;
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+}
+
+.features-hero h1 {
+  font-size: 3.5rem;
+  font-family: var(--font-montserrat), sans-serif;
+  margin-bottom: 1.5rem;
+}
+
+.features-sub {
+  color: var(--text-secondary);
+  font-size: 1.2rem;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* Feature Columns */
+.features-columns-section {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(480px, 1fr));
+  gap: 2.5rem;
+  margin-bottom: 6rem;
+}
+
+@media (max-width: 768px) {
+  .features-columns-section {
+    grid-template-columns: 1fr;
+  }
+}
+
+.feat-col-item {
+  padding: 3rem;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.3s ease;
+}
+
+.feat-col-header {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.feat-col-icon {
+  font-size: 2.5rem;
+  filter: drop-shadow(0 4px 8px rgba(155, 77, 202, 0.3));
+}
+
+.feat-col-header h2 {
+  font-size: 1.6rem;
+  margin: 0 0 0.2rem 0;
+  font-family: var(--font-montserrat), sans-serif;
+}
+
+.feat-col-header small {
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.feat-col-desc {
+  color: var(--text-secondary);
+  font-size: 1.05rem;
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+  flex-grow: 1;
+}
+
+.feat-col-list {
+  list-style: none;
+  padding: 0;
+}
+
+.feat-col-list li {
+  margin-bottom: 0.6rem;
+  font-size: 0.95rem;
+  color: var(--text-primary);
+}
+
+/* Smart Calculator Widget */
+.calculator-section {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 4rem;
+  padding: 4rem;
+  border-radius: 24px;
+  margin-bottom: 6rem;
+  align-items: center;
+}
+
+@media (max-width: 992px) {
+  .calculator-section {
+    grid-template-columns: 1fr;
+    padding: 2.5rem;
+    gap: 3rem;
+  }
+}
+
+.calc-text h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  font-family: var(--font-montserrat), sans-serif;
+}
+
+.calc-text p {
+  color: var(--text-secondary);
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 3rem;
+}
+
+.calc-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.calc-input {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.calc-input label {
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.family-selector,
+.freq-selector {
+  display: flex;
+  gap: 1rem;
+}
+
+.family-selector button,
+.freq-selector button {
+  padding: 12px 24px;
+  border-radius: 8px;
+  cursor: pointer;
+  color: #fff;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: all 0.2s ease;
+  flex-grow: 1;
+  text-align: center;
+}
+
+.family-selector button:hover,
+.freq-selector button:hover {
+  border-color: var(--highlight-color);
+  background: rgba(155, 77, 202, 0.05);
+}
+
+.family-selector button.active,
+.freq-selector button.active {
+  background: var(--highlight-color);
+  border-color: var(--highlight-color);
+  box-shadow: 0 4px 15px rgba(155, 77, 202, 0.3);
+}
+
+.calc-result-box {
+  padding: 3rem;
+  border-radius: 16px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.calc-result-box h3 {
+  font-size: 1.3rem;
+  margin-bottom: 0.2rem;
+}
+
+.calc-result-box small {
+  color: var(--text-secondary);
+  font-size: 0.8rem;
+  margin-bottom: 1.5rem;
+}
+
+.result-number {
+  font-size: 4rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+  line-height: 1;
+}
+
+.result-number span {
+  font-size: 1.8rem;
+  font-weight: 600;
+}
+
+.result-advice {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  margin-bottom: 1.5rem;
+}
+
+.recommendation {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  background: rgba(155, 77, 202, 0.1);
+  padding: 8px 18px;
+  border-radius: 20px;
+  margin-bottom: 2rem;
+  border: 1px solid rgba(155, 77, 202, 0.2);
+}
+
+.recommendation span {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+.recommendation strong {
+  font-size: 1rem;
+  color: var(--highlight-color);
+}
+
+.calc-order-btn {
+  width: 100%;
+}
+
+/* Safety commitment */
+.safety-commitment {
+  padding: 4rem;
+  text-align: center;
+  border-radius: 24px;
+}
+
+.safety-badge-large {
+  font-size: 3.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.safety-commitment h2 {
+  font-size: 2.2rem;
+  margin-bottom: 1.2rem;
+  font-family: var(--font-montserrat), sans-serif;
+}
+
+.safety-commitment p {
+  color: var(--text-secondary);
+  font-size: 1.15rem;
+  line-height: 1.7;
+  max-width: 800px;
+  margin: 0 auto 2.5rem auto;
+}
+
+.safety-badges-row {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.safety-badges-row span {
+  padding: 8px 20px;
+  border-radius: 20px;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+  .calculator-section {
+    padding: 1.5rem;
+  }
+  .calc-result-box {
+    padding: 1.5rem;
+  }
+  .features-hero h1 {
+    font-size: 2.5rem;
+  }
+}

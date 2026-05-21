@@ -1,0 +1,528 @@
+/* components/OrderGas.css */
+
+.order-gas-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  position: relative;
+  min-height: 100vh;
+}
+
+.order-title {
+  font-size: 3rem;
+  font-family: var(--font-montserrat), sans-serif;
+  margin-bottom: 0.5rem;
+}
+
+.order-subtitle {
+  color: var(--text-secondary);
+  font-size: 1.1rem;
+  margin-bottom: 3rem;
+  max-width: 600px;
+}
+
+.order-form-grid {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr;
+  gap: 3rem;
+  position: relative;
+  z-index: 10;
+}
+
+.form-group-panel {
+  padding: 2.5rem;
+  margin-bottom: 2.5rem;
+  position: relative;
+  border-radius: 16px;
+}
+
+.step-badge {
+  position: absolute;
+  top: -12px;
+  left: 24px;
+  background: linear-gradient(135deg, var(--highlight-color), var(--accent-color));
+  color: #fff;
+  padding: 4px 14px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  box-shadow: 0 4px 10px rgba(155, 77, 202, 0.4);
+}
+
+.form-group-panel h3 {
+  font-size: 1.4rem;
+  margin-bottom: 1.5rem;
+  font-family: var(--font-montserrat), sans-serif;
+}
+
+/* Step 1: Cylinders */
+.cylinder-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+}
+
+.cylinder-card {
+  padding: 1.5rem;
+  border-radius: 12px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.cylinder-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--highlight-color);
+  box-shadow: 0 10px 20px rgba(155, 77, 202, 0.15);
+}
+
+.cylinder-card.active {
+  background: rgba(155, 77, 202, 0.15);
+  border-color: var(--highlight-color);
+  box-shadow: 0 12px 25px rgba(155, 77, 202, 0.3);
+  transform: scale(1.03);
+}
+
+.cyl-icon {
+  font-size: 2.5rem;
+  margin-bottom: 0.8rem;
+  filter: drop-shadow(0 4px 8px rgba(155, 77, 202, 0.3));
+}
+
+.cyl-size {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 0.4rem;
+}
+
+.cyl-price {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--highlight-color);
+  margin-bottom: 0.8rem;
+}
+
+.cyl-desc {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  line-height: 1.4;
+}
+
+/* Step 2: Order Type */
+.order-type-selector {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.type-btn {
+  padding: 1.5rem;
+  border-radius: 12px;
+  cursor: pointer;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.3s ease;
+  background: transparent;
+  color: inherit;
+}
+
+.type-btn:hover {
+  border-color: var(--highlight-color);
+  background: rgba(122, 40, 138, 0.05);
+}
+
+.type-btn.active {
+  background: rgba(155, 77, 202, 0.15);
+  border-color: var(--highlight-color);
+  box-shadow: 0 10px 20px rgba(155, 77, 202, 0.2);
+}
+
+.type-btn strong {
+  font-size: 1.1rem;
+  margin-bottom: 0.4rem;
+}
+
+.type-btn small {
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+}
+
+/* Step 3: Quantity & Accessories */
+.qty-accessories-flex {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.qty-selector {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.qty-selector label {
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.qty-controls {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.qty-btn {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  border: 1px solid var(--glass-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.qty-btn:hover {
+  background: var(--highlight-color);
+  border-color: var(--highlight-color);
+  color: #fff;
+  transform: scale(1.05);
+}
+
+.qty-val {
+  font-size: 1.6rem;
+  font-weight: 700;
+  min-width: 30px;
+  text-align: center;
+}
+
+.accessories-section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.accessories-section label {
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.accessories-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+}
+
+.accessory-card {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.2rem;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.accessory-card:hover {
+  border-color: var(--highlight-color);
+  background: rgba(122, 40, 138, 0.05);
+}
+
+.accessory-card.active {
+  background: rgba(155, 77, 202, 0.15);
+  border-color: var(--highlight-color);
+  box-shadow: 0 6px 15px rgba(155, 77, 202, 0.15);
+}
+
+.accessory-card input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--highlight-color);
+  cursor: pointer;
+}
+
+.accessory-card strong {
+  display: block;
+  font-size: 0.95rem;
+}
+
+.accessory-card small {
+  display: block;
+  color: var(--text-secondary);
+  font-size: 0.8rem;
+}
+
+/* Step 4: Form */
+.delivery-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+@media (max-width: 600px) {
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+.input-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.input-field label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.input-field input,
+.input-field textarea,
+.input-field select {
+  padding: 12px 18px;
+  border-radius: 8px;
+  border: 1px solid var(--glass-border);
+  color: #fff;
+  font-size: 0.95rem;
+  font-family: inherit;
+  transition: all 0.3s ease;
+  outline: none;
+  background: rgba(20, 15, 25, 0.4);
+}
+
+.input-field input:focus,
+.input-field textarea:focus,
+.input-field select:focus {
+  border-color: var(--highlight-color);
+  box-shadow: 0 0 10px rgba(155, 77, 202, 0.3);
+  background: rgba(20, 15, 25, 0.7);
+}
+
+.input-field select option {
+  background: var(--secondary-color);
+  color: #fff;
+}
+
+/* Right Column Summary */
+.order-summary-section {
+  position: relative;
+}
+
+.sticky-summary {
+  position: sticky;
+  top: 120px;
+  padding: 2.5rem;
+  border-radius: 16px;
+}
+
+.sticky-summary h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  font-family: var(--font-montserrat), sans-serif;
+}
+
+.summary-divider {
+  border: 0;
+  height: 1px;
+  background: rgba(155, 77, 202, 0.2);
+  margin: 1.5rem 0;
+}
+
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  font-size: 0.95rem;
+}
+
+.summary-row.sub-row {
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  padding-left: 1rem;
+  margin-bottom: 0.6rem;
+}
+
+.total-row {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin: 1.5rem 0;
+}
+
+.payment-method-selector {
+  margin-bottom: 2rem;
+}
+
+.payment-method-selector p {
+  font-weight: 600;
+  font-size: 0.95rem;
+  margin-bottom: 0.8rem;
+  color: var(--text-secondary);
+}
+
+.pay-methods {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.pay-option {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 12px 18px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.pay-option input[type="radio"] {
+  accent-color: var(--highlight-color);
+  width: 16px;
+  height: 16px;
+}
+
+.pay-option span {
+  font-size: 0.95rem;
+}
+
+.checkout-btn {
+  width: 100%;
+  padding: 16px;
+  border-radius: 30px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 8px 25px rgba(155, 77, 202, 0.4);
+}
+
+.security-assurance {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  text-align: center;
+  line-height: 1.5;
+}
+
+.spinner {
+  display: inline-block;
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 1; }
+}
+
+/* Success Screen */
+.order-success-screen {
+  max-width: 600px;
+  margin: 4rem auto;
+  padding: 3.5rem;
+  text-align: center;
+  border-radius: 20px;
+}
+
+.success-icon {
+  font-size: 4.5rem;
+  margin-bottom: 1.5rem;
+  filter: drop-shadow(0 5px 15px rgba(155, 77, 202, 0.4));
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.order-success-screen h2 {
+  font-size: 2.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.success-order-id {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  margin-bottom: 2rem;
+}
+
+.success-details {
+  padding: 2rem;
+  border-radius: 12px;
+  text-align: left;
+  margin-bottom: 2rem;
+}
+
+.success-details p {
+  margin-bottom: 1rem;
+  font-size: 0.95rem;
+  border-bottom: 1px solid rgba(155, 77, 202, 0.1);
+  padding-bottom: 0.8rem;
+}
+
+.success-details p:last-child {
+  margin-bottom: 0;
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.tracking-text {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  margin-bottom: 2.5rem;
+}
+
+.success-home-btn {
+  width: 80%;
+  margin: 0 auto;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .order-form-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+  .sticky-summary {
+    position: relative;
+    top: 0;
+  }
+}
+@media (max-width: 768px) {
+  .order-gas-container {
+    padding: 1rem;
+  }
+  .form-group-panel {
+    padding: 1.5rem;
+  }
+  .order-title {
+    font-size: 2.2rem;
+  }
+  .cylinder-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .order-type-selector {
+    grid-template-columns: 1fr;
+  }
+}

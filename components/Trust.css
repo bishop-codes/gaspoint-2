@@ -1,0 +1,70 @@
+.trust {
+  background-color: var(--primary-color);
+}
+
+.stats-container {
+  display: flex;
+  justify-content: space-around;
+  padding: 3rem;
+  margin-bottom: 5rem;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.stat {
+  text-align: center;
+}
+
+.stat h3 {
+  font-size: 3rem;
+  color: var(--highlight-color);
+  margin-bottom: 0.5rem;
+}
+
+.stat p {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.testimonial-card {
+  padding: 2.5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.stars {
+  margin-bottom: 1.5rem;
+  font-size: 1.2rem;
+}
+
+.review-text {
+  font-size: 1.1rem;
+  font-style: italic;
+  margin-bottom: 2rem;
+  flex-grow: 1;
+}
+
+.reviewer h4 {
+  color: var(--highlight-color);
+  margin-bottom: 0.2rem;
+}
+
+.reviewer p {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+  .stats-container {
+    padding: 2rem;
+    flex-direction: column;
+  }
+}

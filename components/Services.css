@@ -1,0 +1,85 @@
+.services-section {
+  background-color: var(--primary-color);
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.service-card {
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.service-img-wrapper {
+  height: 320px;
+  overflow: hidden;
+  position: relative;
+}
+
+.service-img-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 50%;
+  background: linear-gradient(to top, var(--primary-color) 0%, transparent 100%);
+  z-index: 2;
+}
+
+.service-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease, opacity 0.5s ease-in-out;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+}
+
+.service-img.active {
+  opacity: 1;
+  z-index: 1;
+}
+
+.service-card:hover .service-img.active {
+  transform: scale(1.1);
+}
+
+.service-content {
+  padding: 2rem;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.service-title {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.service-desc {
+  color: var(--text-secondary);
+  margin-bottom: 1.5rem;
+  flex-grow: 1;
+}
+
+.service-link {
+  color: var(--highlight-color);
+  text-decoration: none;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+  align-self: flex-start;
+  transition: color 0.3s ease;
+}
+
+.service-link:hover {
+  color: #fff;
+}
