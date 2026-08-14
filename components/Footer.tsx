@@ -41,9 +41,9 @@ const Footer = () => {
           <div className="footer-contact">
             <h3>Contact Us</h3>
             <p>📍 123 Gas Avenue, Energy City</p>
-            <p>📞 +1 234 567 890</p>
+            <p>📞 +234 9123144580</p>
             <p>✉️ support@gaspoint.com</p>
-            <a href="https://wa.me/1234567890" className="btn-whatsapp glass">
+            <a href="https://wa.me/09123144580" className="btn-whatsapp glass">
               WhatsApp Us
             </a>
           </div>
