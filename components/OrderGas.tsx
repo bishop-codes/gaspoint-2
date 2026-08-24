@@ -11,6 +11,7 @@ const cylinderSizes = [
 ];
 
 export default function OrderGas() {
+  const [paymentMethod, setPaymentMethod] = useState<'cod' | 'paystack'>('cod');
   const [selectedSize, setSelectedSize] = useState(cylinderSizes[1]); // Default 12.5kg
   const [orderType, setOrderType] = useState('refill'); // refill, new, accessories
   const [quantity, setQuantity] = useState(1);
@@ -69,11 +70,84 @@ export default function OrderGas() {
       alert('Please fill in all required fields.');
       return;
     }
+    // If user chose online payment, start Paystack flow
+    if (paymentMethod === 'paystack') {
+      startPaystackPayment();
+      return;
+    }
+
     setIsSubmitting(true);
     setTimeout(() => {
       setIsSubmitting(false);
       setIsSubmitted(true);
     }, 2000);
+  };
+
+  const loadPaystackScript = () => {
+    return new Promise<void>((resolve) => {
+      if (typeof window === 'undefined') return resolve();
+      if ((window as any).PaystackPop) return resolve();
+      const script = document.createElement('script');
+      script.src = 'https://js.paystack.co/v1/inline.js';
+      script.async = true;
+      script.onload = () => resolve();
+      document.body.appendChild(script);
+    });
+  };
+
+  const startPaystackPayment = async () => {
+    const publicKey = process.env.NEXT_PUBLIC_PAYSTACK_PUBLIC_KEY || '';
+    if (!publicKey) {
+      alert('Payment not configured. Missing public key.');
+      return;
+    }
+
+    await loadPaystackScript();
+
+    const amountKobo = Math.round(getTotalPrice() * 100);
+    // Paystack requires an email - use phone fallback if email not collected
+    const userEmail = (formData as any).email || `${formData.phone.replace(/\s+/g, '')}@example.com`;
+
+    setIsSubmitting(true);
+
+    const handler = (window as any).PaystackPop.setup({
+      key: publicKey,
+      email: userEmail,
+      amount: amountKobo,
+      currency: 'NGN',
+      ref: `GP-${Date.now()}`,
+      metadata: {
+        custom_fields: [
+          { display_name: 'Customer Name', variable_name: 'customer_name', value: formData.name },
+          { display_name: 'Phone', variable_name: 'phone', value: formData.phone },
+        ],
+      },
+      callback: async (response: any) => {
+        try {
+          const verifyRes = await fetch('/api/paystack/verify', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ reference: response.reference }),
+          });
+          const verifyJson = await verifyRes.json();
+          if (verifyRes.ok && verifyJson.data && verifyJson.data.status === 'success') {
+            setIsSubmitted(true);
+          } else {
+            alert('Payment verification failed.');
+          }
+        } catch (err) {
+          alert('Payment verification error');
+        } finally {
+          setIsSubmitting(false);
+        }
+      },
+      onClose: () => {
+        setIsSubmitting(false);
+        alert('Payment window closed.');
+      },
+    });
+
+    handler.openIframe();
   };
 
   return (
@@ -221,7 +295,7 @@ export default function OrderGas() {
                       id="phone"
                       name="phone"
                       required
-                      placeholder="e.g. +234 80 1234 5678"
+                      placeholder="e.g. +234 9123144580"
                       className="glass"
                       value={formData.phone}
                       onChange={handleInputChange}
@@ -308,11 +382,23 @@ export default function OrderGas() {
                 <p>Choose Payment Method</p>
                 <div className="pay-methods">
                   <label className="pay-option glass">
-                    <input type="radio" name="payment" defaultChecked />
+                    <input
+                      type="radio"
+                      name="payment"
+                      value="cod"
+                      checked={paymentMethod === 'cod'}
+                      onChange={() => setPaymentMethod('cod')}
+                    />
                     <span>Cash on Delivery</span>
                   </label>
                   <label className="pay-option glass">
-                    <input type="radio" name="payment" />
+                    <input
+                      type="radio"
+                      name="payment"
+                      value="paystack"
+                      checked={paymentMethod === 'paystack'}
+                      onChange={() => setPaymentMethod('paystack')}
+                    />
                     <span>Card / Mobile Money</span>
                   </label>
                 </div>
