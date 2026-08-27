@@ -124,10 +124,12 @@ export default function OrderGas() {
       },
       callback: async (response: any) => {
         try {
-          const verifyRes = await fetch('/api/paystack/verify', {
+          const laravelUrl = process.env.NEXT_PUBLIC_LARAVEL_URL || '';
+          const verifyEndpoint = laravelUrl ? `${laravelUrl.replace(/\/$/, '')}/api/paystack/verify` : '/api/paystack/verify';
+          const verifyRes = await fetch(verifyEndpoint, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ reference: response.reference }),
+                  body: JSON.stringify({ reference: response.reference, email: formData.email }),
           });
           const verifyJson = await verifyRes.json();
           if (verifyRes.ok && verifyJson.data && verifyJson.data.status === 'success') {
